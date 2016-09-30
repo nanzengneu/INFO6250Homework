@@ -1,0 +1,80 @@
+<html>
+   <head>
+      <title>Sign Up Page</title>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+      <script src = "ngStorage/ngStorage.min.js"></script>
+   </head>
+  
+   <body>
+      <h1>Welcome to my page, please sign up your information below</h1>
+
+      <div ng-app = "myApp" ng-controller = "meController">
+         First Name: <input type = "text" ng-model = "firstname"><br><br>
+         Last Name: <input type = "text" ng-model = "lastname"><br><br>
+         Sex: <input type = "radio" ng-model = "sex" value = "Male">Male <input type = "radio" ng-model = "sex" value = "Female">Female <br><br>
+         Email: <input type = "email" ng-model = "email"><br><br>
+         Password: <input type = "text" ng-model = "password"><br><br>
+         Confirm Password: <input type = "text" ng-model = "confirmpassword"><br><br>
+         Address: <input type = "text" ng-model = "address"><br><br>
+         City: <input type = "text" ng-model = "city"><br><br>
+         State:<select name="state" ng-model="state">
+                <option value="AL">AL-Alabama</option>
+                <option value="AK">AK-Alaska</option>
+                <option value="AZ">AZ-Arizona</option>
+                <option value="AR">AR-Arkansas</option>
+                <option value="CA">CA-California</option>
+                <option value="CO">CO-Colorado</option>
+                <option value="CT">CT-Connecticut</option>
+                <option value="DE">DE-Delaware</option>
+                <option value="FL">FL-Florida</option>
+                <option value="GA">GA-Georgia</option>
+                <option value="HI">HI-Hawaii</option>
+                <option value="ID">ID-Idaho</option>
+                <option value="IL">IL-Illinois</option>
+                <option value="IN">IN-Indiana</option>
+                <option value="IA">IA-Iowa</option>
+                <option value="KS">KS-Kansas</option>
+                <option value="KY">KY-Kentucky</option>
+                <option value="ME">ME-Maine</option>
+                <option value="MA">MA-Massachusetts</option>
+                <option value="NJ">NJ-New Jersey</option>
+                <option value="NY">NY-New York</option>
+                <option value="OH">OH-Ohio</option>
+                <option value="OR">OR-Oregon</option>
+                <option value="WA">WA-Washington</option>
+                </select> 
+	 <br><br>
+         Zipcode: <input type = "number" ng-model = "zipcode"><br><br>
+         Date of Birth: <input type = "date" ng-model = "dateofbirth"><br><br>   
+         <button ng-click="submit()">Submit</button><br><br>
+         <p>Result</p>
+         <textarea row="50" cols="50" name="Result" title="Result"> {{res|json}}</textarea>
+         
+      </div>
+
+      <script>
+        var app = angular.module('myApp', []);
+        app.controller('meController', function($scope) {
+
+           $scope.submit = function() {
+              var data = [{
+              firstname: $scope.firstname,
+              lastname: $scope.lastname,
+              sex: $scope.sex,
+              email:$scope.email,
+              password: $scope.password,
+              confirmpassword: $scope.confirmpassword,
+              address: $scope.address,
+              city: $scope.city,
+              state: $scope.state,
+              zipcode: $scope.zipcode,
+              dateofbirth: $scope.dateofbirth
+              }];
+           $scope.res = data;
+           }    
+        });     
+      </script>
+   
+
+   </body>
+</html>
