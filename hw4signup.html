@@ -1,0 +1,66 @@
+<html>
+   <head>
+      <title>Sign Up Page</title>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+      <script src = "hw4controllers.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.0/ui-bootstrap-tpls.js"></script>
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+   </head>
+
+   <body>
+      <h1>Welcome to my page, please sign up your information below</h1>
+
+      <div style="width: 40%; margin-left: 5%; margin-bottom: 5%" ng-app = "redis" ng-controller = "RedisCtrl">
+      <form>
+      <fieldset>
+         First Name: <input type = "text" ng-model = "firstname" class="form-control"><br><br>
+         Last Name: <input type = "text" ng-model = "lastname" class="form-control"><br><br>
+         Sex: <input type = "radio" ng-model = "sex" value = "Male">Male <input type = "radio" ng-model = "sex" value = "Female">Female <br><br>
+         Email: <input type = "email" ng-model = "email" class="form-control"><br><br>
+         Password: <input type = "text" ng-model = "password" class="form-control"><br><br>
+         Confirm Password: <input type = "text" ng-model = "confirmpassword" class="form-control"><br><br>
+         Address: <input type = "text" ng-model = "address" class="form-control"><br><br>
+         City: <input type = "text" ng-model = "city" class="form-control"><br><br>
+         State: <select name="state" ng-model="state" class="form-control">
+                <option value="AL">AL-Alabama</option>
+                <option value="AK">AK-Alaska</option>
+                <option value="AZ">AZ-Arizona</option>
+                <option value="AR">AR-Arkansas</option>
+                <option value="CA">CA-California</option>
+                <option value="CO">CO-Colorado</option>
+                <option value="CT">CT-Connecticut</option>
+                <option value="DE">DE-Delaware</option>
+                <option value="FL">FL-Florida</option>
+                <option value="GA">GA-Georgia</option>
+                <option value="HI">HI-Hawaii</option>
+                <option value="ID">ID-Idaho</option>
+                <option value="IL">IL-Illinois</option>
+                <option value="IN">IN-Indiana</option>
+                <option value="IA">IA-Iowa</option>
+                <option value="KS">KS-Kansas</option>
+                <option value="KY">KY-Kentucky</option>
+                <option value="ME">ME-Maine</option>
+                <option value="MA">MA-Massachusetts</option>
+                <option value="NJ">NJ-New Jersey</option>
+                <option value="NY">NY-New York</option>
+                <option value="OH">OH-Ohio</option>
+                <option value="OR">OR-Oregon</option>
+                <option value="WA">WA-Washington</option>
+                </select>
+         <br><br>
+         Zipcode: <input type = "number" ng-model = "zipcode" class="form-control"><br><br>
+         Date of Birth: <input type = "date" ng-model = "dateofbirth" class="form-control"><br><br>
+         <button type="button" class="btn btn-primary" ng-click="controller.submit()">Submit</button><br><br>
+      </fieldset>
+      </form>
+      <div>
+         <p>Result</p>
+	 <textarea name="Result" title="Result" class="form-control">{{firstname}}</textarea>
+
+      </div>
+
+      </div>
+
+   </body>
+</html>
