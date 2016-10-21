@@ -1,44 +1,45 @@
 var redisApp = angular.module('redis', ['ui.bootstrap']);
 
 
-function RedisController() {}
+redisApp.controller('RedisCtrl', function ($scope, $http) {
+	$scope.message = [];	
+	$scope.submit = function(){
+	  $scope.logininfo = {
+	   firstname : "",
+	   lastname : "",
+	   sex: "",
+	   email: "",
+	   password: "",
+	   confirmpassword: "",
+	   address: "",
+	   city: "",
+	   state: "",
+	   zipcode: "",
+	   dateofbirth: ""
+	};
 
-RedisController.prototype.submit = function() {
-     this.scope_.message = [];
-     var info = {
-        firstname: $scope.firstname,
-        lastname: $scope.lastname,
-        sex: $scope.sex,
-        email: $scope.email,
-        password: $scope.password,
-        confirmpassword: $scope.confirmpassword,
-        address: $scope.address,
-        city: $scope.city,
-        state: $scope.state,
-        zipcode: $scope.zipcode,
-        dateofbirth: $scope.dateofbirth
-        };
-    this.scope_.message.push(this.scope_.info);
-   /* this.scope_.info = "";*/
-    var value = this.scope_.info; 
+	
+        angular.forEach($scope.info, function(value, key){
 
-    this.http_.get("app.php?cmd=set&key=messages&value=" + value)
-            .success(angular.bind(this, function(data) {
-                this.scope_.redisResponse = "Updated.";
-            }));
-
-};
-
-redisApp.controller('RedisCtrl', function ($scope, $http, $location) {
-        $scope.controller = new RedisController();
-        $scope.controller.scope_ = $scope;
-        $scope.controller.location_ = $location;
-        $scope.controller.http_ = $http;
-        $scope.controller.http_.get("app.php?cmd=get&key=messages")
-            .success(function(data) {
-                console.log(data);
-                $scope.messages = data.data.split(",");
+            $http.get("app.php?cmd=append&key=messages&value="+value)
+            .success(function (data, status, headers, config) {
+                $scope.redisResponse = "Updated.";
             });
+            $http.get("app.php?cmd=get&key=messages")
+                .success(function (data, status, headers, config) {
+                    $scope.logininfo[key] = data.data;
+
+                })
+                .error(function (data, status, header, config) {
+                    console.log(data);
+            });
+            
+        });
+        
+        $scope.message.push($scope.logininfo);
+
+    }
+
 
 });
 

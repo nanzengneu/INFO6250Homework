@@ -1,5 +1,5 @@
 <html>
-   <head>
+      <head>
       <title>Sign Up Page</title>
       <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
       <script src = "hw4controllers.js"></script>
@@ -9,20 +9,20 @@
    </head>
 
    <body>
-      <h1>Welcome to my page, please sign up your information below</h1>
+      <h1>(Mobile Version) Welcome to my page, please sign up your information below</h1>
 
       <div style="width: 40%; margin-left: 5%; margin-bottom: 5%" ng-app = "redis" ng-controller = "RedisCtrl">
       <form>
       <fieldset>
-         First Name: <input type = "text" ng-model = "info.firstname" class="form-control"><br><br>
-         Last Name: <input type = "text" ng-model = "info.lastname" class="form-control"><br><br>
-         Sex: <input type = "radio" ng-model = "info.sex" value = "Male">Male <input type = "radio" ng-model = "sex" value = "Female">Female <br><br>
-         Email: <input type = "email" ng-model = "info.email" class="form-control"><br><br>
-         Password: <input type = "text" ng-model = "info.password" class="form-control"><br><br>
-         Confirm Password: <input type = "text" ng-model = "info.confirmpassword" class="form-control"><br><br>
-         Address: <input type = "text" ng-model = "info.address" class="form-control"><br><br>
-         City: <input type = "text" ng-model = "info.city" class="form-control"><br><br>
-         State: <select name="state" ng-model="info.state" class="form-control">
+         First Name: <input type = "text" ng-model = "firstname" class="form-control"><br><br>
+         Last Name: <input type = "text" ng-model = "lastname" class="form-control"><br><br>
+         Sex: <input type = "radio" ng-model = "sex" value = "Male">Male <input type = "radio" ng-model = "sex" value = "Female">Female <br><br>
+         Email: <input type = "email" ng-model = "email" class="form-control"><br><br>
+         Password: <input type = "text" ng-model = "password" class="form-control"><br><br>
+         Confirm Password: <input type = "text" ng-model = "confirmpassword" class="form-control"><br><br>
+         Address: <input type = "text" ng-model = "address" class="form-control"><br><br>
+         City: <input type = "text" ng-model = "city" class="form-control"><br><br>
+         State: <select name="state" ng-model="state" class="form-control">
                 <option value="AL">AL-Alabama</option>
                 <option value="AK">AK-Alaska</option>
                 <option value="AZ">AZ-Arizona</option>
@@ -49,9 +49,9 @@
                 <option value="WA">WA-Washington</option>
                 </select>
          <br><br>
-         Zipcode: <input type = "number" ng-model = "info.zipcode" class="form-control"><br><br>
-         Date of Birth: <input type = "date" ng-model = "info.dateofbirth" class="form-control"><br><br>
-         <button type="button" class="btn btn-primary" ng-click="submit()">Submit</button><br><br>
+         Zipcode: <input type = "number" ng-model = "zipcode" class="form-control"><br><br>
+         Date of Birth: <input type = "date" ng-model = "dateofbirth" class="form-control"><br><br>
+         <button type="button" class="btn btn-primary" ng-click="controller.submit()">Submit</button><br><br>
       </fieldset>
       </form>
       <div>
@@ -64,3 +64,4 @@
 
    </body>
 </html>
+
